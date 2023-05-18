@@ -2,7 +2,27 @@ let options = ["rock", "paper", "scissors"];
 let userScore = 0;
 let computerScore = 0;
 
-game();
+// game();
+// const rock = document.getElementById("rock");
+// const paper = document.getElementById("paper");
+// const scissors = document.getElementById("scissors");
+
+const buttons = document.querySelectorAll('#buttons');
+console.log(buttons);
+buttons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+        console.log(e.target.id);
+    });
+});
+
+rock.addEventListener('click', ()=> {
+    logName();
+});
+
+function logName(){
+    console.log(this);
+}
+
 
 // Will play a best of 5 game of Rock, Paper, Scissors
 function game(){
