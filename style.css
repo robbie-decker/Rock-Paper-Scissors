@@ -1,0 +1,16 @@
+#winCard, #loseCard{
+    display: none;
+}
+
+
+#fire{
+    background-image: url("./images/charmander.png");
+}
+
+#water{
+    background-image: url("./images/squirtle.jpg");
+}
+
+#grass{
+    background-image: url("./images/bulbasaur.jpg");
+}

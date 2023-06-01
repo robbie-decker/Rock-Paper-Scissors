@@ -10,17 +10,28 @@
         <title>Rock, Paper, Scissors</title>
         <meta name="description" content="This is a rock, paper, scissors, battle against a computer. Good luck">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+        <div id="roundResult"></div>
+        <p>Please pick an option</p>
         <div id="buttons">
-            <button id="rock">Rock</button>
-            <button id="paper">Paper</button>
-            <button id="scissors">Scissors</button>
+            <button><img id="rock" src="./images/charmander.png"></button>
+            <button><img id="paper" src="./images/squirtle.jpg"></button>
+            <button><img id="scissors" src="./images/bulbasaur.jpg"></button>
         </div>
+        <div id="scoreboard">
+            <p id="userScoreboard">User: 0</p>
+            <p id="computerScoreboard">Computer: 0</p>
+        </div>
+
+        <div id="winCard">You won!</div>
+        <div id="loseCard"> You lost :/</div>
+
+        <button id = "reset">Reset</button>
         <script src="script.js" async defer></script>
     </body>
 </html>
