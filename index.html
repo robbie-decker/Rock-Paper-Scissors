@@ -7,8 +7,8 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Rock, Paper, Scissors</title>
-        <meta name="description" content="This is a rock, paper, scissors, battle against a computer. Good luck">
+        <title>Fire, Water, Grass</title>
+        <meta name="description" content="This is a fire, water, grass, battle against a computer. Good luck">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css">
     </head>
@@ -16,20 +16,19 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        <div id="roundResult"></div>
-        <p>Please pick an option</p>
+        <h1>Choose your Pokemon!</h1>
+        <p>This is a best of 5 pokemon battle. The rules are similar to Rock, Paper, Scissors.<br>Good Luck!</p>
         <div id="buttons">
-            <button><img id="rock" src="./images/charmander.png"></button>
-            <button><img id="paper" src="./images/squirtle.jpg"></button>
-            <button><img id="scissors" src="./images/bulbasaur.jpg"></button>
+            <button class="pokemon"><img id="fire" src="./images/charmander.png"></button>
+            <button class="pokemon"><img id="water" src="./images/squirtle.jpg"></button>
+            <button class="pokemon"><img id="grass" src="./images/bulbasaur.jpg"></button>
         </div>
+        <p id=></p>
+        <p id="roundResult"></p>
         <div id="scoreboard">
             <p id="userScoreboard">User: 0</p>
             <p id="computerScoreboard">Computer: 0</p>
         </div>
-
-        <div id="winCard">You won!</div>
-        <div id="loseCard"> You lost :/</div>
 
         <button id = "reset">Reset</button>
         <script src="script.js" async defer></script>

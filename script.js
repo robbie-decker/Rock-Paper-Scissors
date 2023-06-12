@@ -1,4 +1,4 @@
-let options = ["rock", "paper", "scissors"];
+let options = ["fire", "water", "grass"];
 let userScore = 0;
 let computerScore = 0;
 
@@ -7,8 +7,6 @@ let computerScore = 0;
 
 const userScoreboard = document.getElementById("userScoreboard");
 const computerScoreboard = document.getElementById("computerScoreboard");
-const winCard = document.getElementById("winCard");
-const loseCard = document.getElementById("loseCard");
 const roundResult = document.getElementById("roundResult");
 
 const buttons = document.querySelectorAll('#buttons');
@@ -27,7 +25,7 @@ buttons.forEach((button) => {
         // Randomly choose option for computer
         let computerChoice = getComputerChoice();
         message = playRound(userChoice, computerChoice);
-        roundResult.textContent = message;
+        roundResult.textContent = message["battle"] + message["result"];
         // I really want this to work before alerting the user
         await updateScore();
         if(userScore >= 3 || computerScore >= 3){
@@ -41,8 +39,6 @@ reset.addEventListener('click', () =>{
     userScore = 0;
     computerScore = 0;
     updateScore();
-    winCard.style.display = "none";
-    loseCard.style.display = "none" ;
     roundResult.textContent = "";
 });
 
@@ -54,7 +50,7 @@ async function updateScore(){
 }
 
 function endGame(){
-    userScore >= 3 ? winCard.style.display = "block" : loseCard.style.display = "block" ;
+    userScore >= 3 ? roundResult.textContent = message["battle"] + "YOU WON THE SERIES" : roundResult.textContent = message["battle"] + "You lost the series :(";
     
 }
 
@@ -63,38 +59,38 @@ function playRound(userChoice, computerChoice){
     console.log(`user chose: ${userChoice}      computer chose: ${computerChoice}`);
     let message = ""
     if(computerChoice === userChoice){
-        return message = "It is a draw";
+        return message = {"battle" : `${userChoice} hits ${computerChoice}: `, "result": "Draw"};
     }
-    else if(userChoice === "rock"){
-        if(computerChoice === "scissors"){
+    else if(userChoice === "fire"){
+        if(computerChoice === "grass"){
             userScore++;
-            return message = "rock beats scissors\nYOU WON";
+            return message = {"battle": "fire beats grass: ", "result" : "You Won!"};
         }
-        else if(computerChoice ==="paper"){
+        else if(computerChoice ==="water"){
             computerScore++;
-            return message = "rock loses to paper\nYOU LOST :(";
-        }
-    }
-
-    else if(userChoice === "paper"){
-        if(computerChoice === "rock"){
-            userScore++;
-            return message = "paper beats rock\nYOU WON";
-        }
-        else if(computerChoice ==="scissors"){
-            computerScore++;
-            return message = "paper loses to scissors\nYOU LOST :(";
+            return message = {"battle" : "fire loses to water: ", "result" : "You Lost :/"};
         }
     }
 
-    else if(userChoice === "scissors"){
-        if(computerChoice === "pape"){
+    else if(userChoice === "water"){
+        if(computerChoice === "fire"){
             userScore++;
-            return message = "scissors beats paper\nYOU WON";
+            return message = {"battle": "water beats fire: ", "result" : "You Won!"};
         }
-        else if(computerChoice ==="rock"){
+        else if(computerChoice ==="grass"){
             computerScore++;
-            return message = "scissors loses to rock\nYOU LOST :(";
+            return message = {"battle" : "water loses to grass: " , "result" : "You Lost :/"};
+        }
+    }
+
+    else if(userChoice === "grass"){
+        if(computerChoice === "water"){
+            userScore++;
+            return message = {"battle": "grass beats water: ", "result" : "You Won!"};
+        }
+        else if(computerChoice ==="fire"){
+            computerScore++;
+            return message = {"battle" : "grass loses to fire: ", "result" : "You Lost :/"};
         }
     }
 }

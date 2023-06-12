@@ -1,16 +1,27 @@
-#winCard, #loseCard{
-    display: none;
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* #fire,#water,#grass{
+    border: none;
+} */
 
-#fire{
-    background-image: url("./images/charmander.png");
+.pokemon{
+    border: none;
+    background-color: inherit;
 }
 
-#water{
-    background-image: url("./images/squirtle.jpg");
+#fire:hover{
+    border: solid red 
 }
 
-#grass{
-    background-image: url("./images/bulbasaur.jpg");
+#water:hover{
+    border: solid blue;
+}
+
+#grass:hover{
+    border: solid green;
 }
