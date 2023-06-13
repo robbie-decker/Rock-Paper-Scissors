@@ -17,20 +17,21 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <h1>Choose your Pokemon!</h1>
-        <p>This is a best of 5 pokemon battle. The rules are similar to Rock, Paper, Scissors.<br>Good Luck!</p>
-        <div id="buttons">
-            <button class="pokemon"><img id="fire" src="./images/charmander.png"></button>
-            <button class="pokemon"><img id="water" src="./images/squirtle.jpg"></button>
-            <button class="pokemon"><img id="grass" src="./images/bulbasaur.jpg"></button>
+        <p>This is a best of 5 pokemon battle. The rules are similar to Rock, Paper, Scissors.Good Luck!</p>
+        <div class = "playArea">
+            <div id="buttons">
+                <button class="pokemon"><img id="fire" src="./images/charmander.png"></button>
+                <button class="pokemon"><img id="water" src="./images/squirtle.png"></button>
+                <button class="pokemon"><img id="grass" src="./images/bulbasaur.jpg"></button>
+            </div>
+            <p class = "hidden">The computer chose: <span id="computerChoiceDisplay">ahhaah</span></p>
+            <p id="roundResult"></p>
+            <div id="scoreboard">
+                <p id="userScoreboard">User: 0</p>
+                <p id="computerScoreboard">Computer: 0</p>
+            </div>
+            <button id = "reset"><img id = "pokeball_Static" src="images/pokeball.png" alt="pokeball.png"><img src="images/pokeball.gif" alt="pokeball.gif">Reset</button>
         </div>
-        <p id=></p>
-        <p id="roundResult"></p>
-        <div id="scoreboard">
-            <p id="userScoreboard">User: 0</p>
-            <p id="computerScoreboard">Computer: 0</p>
-        </div>
-
-        <button id = "reset">Reset</button>
         <script src="script.js" async defer></script>
     </body>
 </html>

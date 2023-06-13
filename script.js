@@ -3,18 +3,19 @@ let userScore = 0;
 let computerScore = 0;
 
 
-// game();
 
 const userScoreboard = document.getElementById("userScoreboard");
 const computerScoreboard = document.getElementById("computerScoreboard");
 const roundResult = document.getElementById("roundResult");
+const computerChoiceDisplay = document.getElementById("computerChoiceDisplay");
+const pokeball = document.getElementById("pokeball_Static");
+
 
 const buttons = document.querySelectorAll('#buttons');
 buttons.forEach((button) => {
     button.addEventListener('click',  async e => {
         // User selects one of the three buttons
         let userChoice = e.target.id;
-        console.log(e);
 
         // Check if user has already won
         if(userScore >= 3 || computerScore >= 3){
@@ -25,6 +26,10 @@ buttons.forEach((button) => {
         // Randomly choose option for computer
         let computerChoice = getComputerChoice();
         message = playRound(userChoice, computerChoice);
+        computerChoiceDisplay.parentElement.classList.remove("hidden")
+        computerChoiceDisplay.textContent = computerChoice.toUpperCase();
+        setColor(computerChoice);
+
         roundResult.textContent = message["battle"] + message["result"];
         // I really want this to work before alerting the user
         await updateScore();
@@ -39,8 +44,18 @@ reset.addEventListener('click', () =>{
     userScore = 0;
     computerScore = 0;
     updateScore();
+    computerChoiceDisplay.parentElement.classList.add("hidden")
     roundResult.textContent = "";
+    computerChoiceDisplay.textContent = "";
 });
+
+reset.addEventListener("mouseenter", () =>{
+    pokeball.style.opacity = 0;
+})
+
+reset.addEventListener("mouseleave", () =>{
+    pokeball.style.opacity = 100;
+})
 
 
 async function updateScore(){
@@ -54,9 +69,12 @@ function endGame(){
     
 }
 
+function setColor(computerChoice){
+    computerChoice === "fire" ? computerChoiceDisplay.style.color = "red" : computerChoice === "water" ? computerChoiceDisplay.style.color = "blue" : computerChoiceDisplay.style.color = "green";
+}
+
 // Battle each other and show victor
 function playRound(userChoice, computerChoice){
-    console.log(`user chose: ${userChoice}      computer chose: ${computerChoice}`);
     let message = ""
     if(computerChoice === userChoice){
         return message = {"battle" : `${userChoice} hits ${computerChoice}: `, "result": "Draw"};
