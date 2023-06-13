@@ -1,2 +1,2 @@
 # Rock-Paper-Scissors
-This is rock, paper, scissors from the Odin Project
+This is fire, water, grass from the Odin Project
